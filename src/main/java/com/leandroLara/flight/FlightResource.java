@@ -1,4 +1,4 @@
-package com.leandroLara.travelorder.flight;
+package com.leandroLara.flight;
 
 import java.util.List;
 
@@ -27,6 +27,14 @@ public class FlightResource {
     public Flight findById(@QueryParam("id") long id) {
         return Flight.findById(id);
     }
+
+    @GET
+    @Path("findByTravelOrderId")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Flight findByTravelOrderId(@QueryParam("travelOrderId") long travelOrderId) {
+        return Flight.findByTravelOrderId(travelOrderId);
+    }
+
 
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
